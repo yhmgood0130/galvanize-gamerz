@@ -1,7 +1,7 @@
 const knex = require ('./knex')
 
 module.exports = {
-  getALl: function(){
+  getAll: function(){
     return knex('game')
   }
 }
