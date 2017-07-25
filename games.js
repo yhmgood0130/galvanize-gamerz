@@ -67,7 +67,7 @@ module.exports = [
   },
   {
     title: "Mass Effect: Andromeda",
-    platform: "PS4",
+    platform: "XBOX ONE",
     price: 13.99,
     url: "http://www.mobygames.com/images/covers/l/387014-mass-effect-andromeda-xbox-one-front-cover.png"
   },
@@ -79,7 +79,7 @@ module.exports = [
   },
   {
     title: "The Legend of Zelda: Breath of Wild",
-    platform: "Swtich",
+    platform: "Switch",
     price: 32.99,
     url: "http://www.cdkeys.com/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/t/h/the_legend_of_zelda_-_breath_of_the_wild_switch_cover.png"
   }

@@ -3,5 +3,17 @@ const knex = require ('./knex')
 module.exports = {
   getAll: function(){
     return knex('game')
+  },
+  getPS4: function() {
+    return knex('game').where('platform','PS4')
+  },
+  getXbox: function() {
+    return knex('game').where('platform','XBOX ONE')
+  },
+  getSwitch: function() {
+    return knex('game').where('platform','Switch')
+  },
+  getProduct: function(id){
+    return knex('game').where('title','like', '%id%')
   }
 }
