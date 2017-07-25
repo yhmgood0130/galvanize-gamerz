@@ -27,8 +27,10 @@ router.get('/product/switch', (req,res,next) => {
 })
 
 router.get('/product/:id', (req,res,next) => {
-  queries.getProduct(req.params.id).then(game => {
-    res.status(200).json(game);
+  let name = req.params.id;
+  console.log(name);
+  queries.getProduct(name).then(title => {
+    res.status(200).json(title);
   })
 
 })

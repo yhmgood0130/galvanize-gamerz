@@ -14,6 +14,6 @@ module.exports = {
     return knex('game').where('platform','Switch')
   },
   getProduct: function(id){
-    return knex('game').where('title','like', '%id%')
+    return knex('game').whereRaw("title ILIKE '%' || ? || '%'", id);
   }
 }
