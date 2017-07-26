@@ -15,5 +15,8 @@ module.exports = {
   },
   getProduct: function(id){
     return knex('game').whereRaw("title ILIKE '%' || ? || '%'", id);
+  },
+  addCart: function(game){
+    return knex('cart').insert(game,'*');
   }
 }

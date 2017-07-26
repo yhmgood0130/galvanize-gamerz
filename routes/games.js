@@ -32,6 +32,12 @@ router.get('/product/:id', (req,res,next) => {
   queries.getProduct(name).then(title => {
     res.status(200).json(title);
   })
+})
 
+router.post('/product/', (req,res,next) => {
+  let addItem = req.body
+  queries.addCart(addItem).then(cart => {
+    res.status(200).json(cart[0]);
+  })
 })
 module.exports = router;
