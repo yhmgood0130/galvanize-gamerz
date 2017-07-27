@@ -34,9 +34,16 @@ router.get('/product/:id', (req,res,next) => {
   })
 })
 
-router.post('/product/', (req,res,next) => {
+router.post('/product', (req,res,next) => {
   let addItem = req.body
+  console.log(addItem);
   queries.addCart(addItem).then(cart => {
+    res.status(200).json(cart[0]);
+  })
+})
+
+router.get('/product/cart', (req,res,next) => {
+  queries.showCart().then(cart => {
     res.status(200).json(cart[0]);
   })
 })

@@ -18,5 +18,8 @@ module.exports = {
   },
   addCart: function(game){
     return knex('cart').insert(game,'*');
+  },
+  showCart: function(){
+    return knex('cart')
   }
 }
