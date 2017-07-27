@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
     table.text("platform");
     table.float("price");
     table.text("url");
+    table.integer("quantity");
   })
 };
 

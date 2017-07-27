@@ -26,25 +26,38 @@ router.get('/product/switch', (req,res,next) => {
   })
 })
 
-router.get('/product/:id', (req,res,next) => {
-  let name = req.params.id;
-  console.log(name);
-  queries.getProduct(name).then(title => {
-    res.status(200).json(title);
+router.get('/product/cart', (req,res,next) => {
+  queries.showCart().then(cart => {
+    res.status(200).json(cart);
+  })
+})
+
+router.delete('/product/:id', (req,res,next) => {
+  let id = req.params.id;
+  queries.deleteItem(id).then(deleted => {
+    message: 'Record deleted!'
+  })
+})
+
+router.put('/product/:id', (req,res,next) => {
+  let id = req.params.id;
+  queries.modifyCart(id,req.body).then(cart => {
+    res.status(200).json(cart[0]);
   })
 })
 
 router.post('/product', (req,res,next) => {
-  let addItem = req.body
-  console.log(addItem);
+  let addItem = req.body;
   queries.addCart(addItem).then(cart => {
     res.status(200).json(cart[0]);
   })
 })
 
-router.get('/product/cart', (req,res,next) => {
-  queries.showCart().then(cart => {
-    res.status(200).json(cart[0]);
+router.get('/product/:id', (req,res,next) => {
+  let name = req.params.id;
+  queries.getProduct(name).then(title => {
+    res.status(200).json(title);
   })
 })
+
 module.exports = router;

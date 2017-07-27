@@ -82,8 +82,8 @@ module.exports = [
     platform: "SWITCH",
     price: 32.99,
     url: "http://www.cdkeys.com/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/t/h/the_legend_of_zelda_-_breath_of_the_wild_switch_cover.png"
-  }
-  ,{
+  },
+  {
     title: "Mario Kart 8 Deluxe",
     platform: "SWITCH",
     price: 32.99,
