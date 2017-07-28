@@ -2,6 +2,12 @@ const express = require('express');
 const router = express.Router();
 const queries = require('../db/queries')
 
+// function validUser(user){
+//   let validTitle = typeof user.title == 'string' && user.title.trim() != '';
+//   let validPlatform = typeof user.platform == 'string' && user.platform.trim() != '';
+//   let validPrice = typeof user.price == 'number' && user.price.trim() != 0;
+// }
+
 router.get('/product', (req,res,next) => {
   queries.getAll().then(games => {
     res.status(200).json(games);
