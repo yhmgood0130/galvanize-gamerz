@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const queries = require('../db/queries')
+const auth = require('../utils/auth')
 
 // function validUser(user){
 //   let validTitle = typeof user.title == 'string' && user.title.trim() != '';
@@ -32,29 +33,31 @@ router.get('/product/switch', (req,res,next) => {
   })
 })
 
-router.get('/product/cart', (req,res,next) => {
-  queries.showCart().then(cart => {
+router.get('/product/:id/cart', auth.authorize, (req,res,next) => {
+  queries.showCart(req.params.id).then(cart => {
     res.status(200).json(cart);
   })
 })
 
-router.delete('/product/:id', (req,res,next) => {
-  let id = req.params.id;
-  queries.deleteItem(id).then(deleted => {
+router.delete('/product/:id/:itemId', (req,res,next) => {
+  let itemId = req.params.itemId;
+  console.log(itemId);
+  queries.deleteItem(itemId).then(deleted => {
     message: 'Record deleted!'
   })
 })
 
-router.put('/product/:id', (req,res,next) => {
-  let id = req.params.id;
+router.put('/product/:id/:itemId', (req,res,next) => {
+  let id = req.params.itemId;
   queries.modifyCart(id,req.body).then(cart => {
     res.status(200).json(cart[0]);
   })
 })
 
-router.post('/product', (req,res,next) => {
+router.post('/product/:id', (req,res,next) => {
+  let id = req.params.id;
   let addItem = req.body;
-  queries.addCart(addItem).then(cart => {
+  queries.addCart(addItem,id).then(cart => {
     res.status(200).json(cart[0]);
   })
 })
