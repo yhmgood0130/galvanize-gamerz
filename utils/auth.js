@@ -19,6 +19,7 @@ module.exports = {
   },
   generateJWT: user => {
     delete user.password;
+    alert(TOKEN_SECRET)
     return jwt.sign(user,process.env.TOKEN_SECRET)
   },
   comparePassword: (password,user) => {
