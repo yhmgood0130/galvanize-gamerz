@@ -19,7 +19,6 @@ module.exports = {
   },
   generateJWT: user => {
     delete user.password;
-    alert(TOKEN_SECRET)
     return jwt.sign(user,process.env.TOKEN_SECRET)
   },
   comparePassword: (password,user) => {
@@ -31,7 +30,6 @@ module.exports = {
     }
   },
   authorize: (req, res, next) => {
-    console.log();
     if (req.user && req.params.id && req.user.id == req.params.id) {
       next()
     } else {
